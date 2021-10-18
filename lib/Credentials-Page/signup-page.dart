@@ -137,191 +137,202 @@ class _SignupPageState extends State<SignupPage> {
               bottomRight: Radius.circular(100)),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(
-            left: MediaQuery.of(context).size.width / 13,
-            top: MediaQuery.of(context).size.width / 13,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Sign up',
+      body: ScrollConfiguration(
+        behavior: MyBehaviour(),
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width / 13,
+              top: MediaQuery.of(context).size.width / 13,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Sign up',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Text(
+                  'My Data',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-              ),
-              Text(
-                'My Data',
-                style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(
-                    right: MediaQuery.of(context).size.width / 15,
-                    top: MediaQuery.of(context).size.width / 14),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        style: TextStyle(color: Colors.white),
-                        controller: userController,
-                        decoration: InputDecoration(
-                          prefixIcon: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(
-                                    'assets/icons/21-avatar-outline.gif',
-                                    fit: BoxFit.fill,
-                                    width: 20,
-                                    height: 20,
+                Container(
+                  padding: EdgeInsets.only(
+                      right: MediaQuery.of(context).size.width / 15,
+                      top: MediaQuery.of(context).size.width / 14),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      children: <Widget>[
+                        TextFormField(
+                          style: TextStyle(color: Colors.white),
+                          controller: userController,
+                          decoration: InputDecoration(
+                            prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Image.asset(
+                                      'assets/icons/21-avatar-outline.gif',
+                                      fit: BoxFit.fill,
+                                      width: 20,
+                                      height: 20,
+                                    ),
                                   ),
-                                ),
-                          labelText: 'User Name',
-                          hintText: 'Enter your UserName',
-                          labelStyle: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                        validator: MultiValidator([
-                          RequiredValidator(errorText: 'Required'),
-                        ]),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.width / 17,
-                        ),
-                      ),
-                      TextFormField(
-                         keyboardType: TextInputType.emailAddress,
-                        style: TextStyle(color: Colors.white),
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          prefixIcon: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(
-                                    'assets/icons/gmail.png',
-                                    fit: BoxFit.fill,
-                                    width: 20,
-                                    height: 20,
-                                  ),
-                                ),
-                          labelText: 'Email',
-                          hintText: 'Enter your Email',
-                          labelStyle: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                        validator: MultiValidator([
-                          RequiredValidator(errorText: 'Required'),
-                          EmailValidator(
-                            errorText: 'Enter valid Email',
-                          ),
-                        ]),
-                        onChanged: (value) {
-                          emailController.text;
-                        },
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.width / 17,
-                        ),
-                      ),
-                      TextFormField(
-                        style: TextStyle(color: Colors.white),
-                        controller: passwordController,
-                        validator: validatepass,
-                        obscureText: HiddenPassword,
-                        decoration: InputDecoration(
-                          prefixIcon: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(
-                                    'assets/icons/password.png',
-                                    fit: BoxFit.fill,
-                                    width: 20,
-                                    height: 20,
-                                  ),
-                                ),
-                          labelText: 'Password',
-                          suffixIcon: InkWell(
-                            onTap: () {
-                              setState(() {
-                                HiddenPassword = !HiddenPassword;
-                              });
-                            },
-                            child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(
-                                    'assets/icons/69-eye-outline.gif',
-                                    fit: BoxFit.fill,
-                                    width: 30,
-                                    height: 40,
-                                  ),
-                                ),
-                          ),
-                          hintText: 'Enter your Password',
-                          labelStyle: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height / 19),
-                        width: 250,
-                        height: 60,
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          // onPressed: () async {
-                          //   await FirebaseAuth.instance
-                          //       .createUserWithEmailAndPassword(
-                          //     email: emailController.text,
-                          //     password: passwordController.text,
-                          //   );
-                          //   setState(() {});
-                          // },
-                          onPressed: signup,
-                          child: Text(
-                            'SIGN UP',
-                            style: TextStyle(
+                            labelText: 'User Name',
+                            hintText: 'Enter your UserName',
+                            labelStyle: TextStyle(
                               fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          validator: MultiValidator([
+                            RequiredValidator(errorText: 'Required'),
+                          ]),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.width / 17,
+                          ),
+                        ),
+                        TextFormField(
+                           keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(color: Colors.white),
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Image.asset(
+                                      'assets/icons/gmail.png',
+                                      fit: BoxFit.fill,
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                  ),
+                            labelText: 'Email',
+                            hintText: 'Enter your Email',
+                            labelStyle: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          validator: MultiValidator([
+                            RequiredValidator(errorText: 'Required'),
+                            EmailValidator(
+                              errorText: 'Enter valid Email',
+                            ),
+                          ]),
+                          onChanged: (value) {
+                            emailController.text;
+                          },
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.width / 17,
+                          ),
+                        ),
+                        TextFormField(
+                          style: TextStyle(color: Colors.white),
+                          controller: passwordController,
+                          validator: validatepass,
+                          obscureText: HiddenPassword,
+                          decoration: InputDecoration(
+                            prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Image.asset(
+                                      'assets/icons/password.png',
+                                      fit: BoxFit.fill,
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                  ),
+                            labelText: 'Password',
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  HiddenPassword = !HiddenPassword;
+                                });
+                              },
+                              child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Image.asset(
+                                      'assets/icons/69-eye-outline.gif',
+                                      fit: BoxFit.fill,
+                                      width: 30,
+                                      height: 40,
+                                    ),
+                                  ),
+                            ),
+                            hintText: 'Enter your Password',
+                            labelStyle: TextStyle(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          margin: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height / 19),
+                          width: 250,
+                          height: 60,
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            // onPressed: () async {
+                            //   await FirebaseAuth.instance
+                            //       .createUserWithEmailAndPassword(
+                            //     email: emailController.text,
+                            //     password: passwordController.text,
+                            //   );
+                            //   setState(() {});
+                            // },
+                            onPressed: signup,
+                            child: Text(
+                              'SIGN UP',
+                              style: TextStyle(
+                                fontSize: 36,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+}
+
+class MyBehaviour extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDiresction) {
+    return child;
   }
 }

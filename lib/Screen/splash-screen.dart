@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:data_app/Credentials-Page/login-page.dart';
 import 'package:data_app/hex-color/Hex_color.dart';
-import 'package:data_app/no-connection.dart';
+import 'package:data_app/Screen/No-connection/no-connection.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 7),
         () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => LoginPage())));
+            MaterialPageRoute(builder: (BuildContext context) => NoConnection())));
   }
   HexColor _color = HexColor('#03045e');
   HexColor _color1 = HexColor('#ff0a54');

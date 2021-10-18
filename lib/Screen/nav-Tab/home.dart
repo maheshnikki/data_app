@@ -15,19 +15,16 @@ class _HomeState extends State<Home> {
     showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: Text('Add the title'),
-        actions: <Widget>[
-          TextField(
-            controller: titleName,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Iconsax.task_square),
-              labelStyle: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
+        title: Text(
+          'Welcome To The Data',
+          textAlign: TextAlign.center,
           ),
+          content: Text(
+            'Hello, We are happy to see you here,',
+
+            ),
+        actions: <Widget>[
+          Text('Thanks you'),
           SizedBox(
             height: 20,
           ),
@@ -46,8 +43,6 @@ class _HomeState extends State<Home> {
 
   void submitTitle() {
     Navigator.pop(context, 'OK');
-    print(titleName.text);
-    titleName.clear();
   }
 
   @override
@@ -58,7 +53,7 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: Add,
-        child: Icon(Iconsax.add5),
+        child: Icon(Icons.accessibility_outlined),
       ),
     );
   }

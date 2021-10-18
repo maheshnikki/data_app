@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   void SettingPage() {
-
+    DropdownMenuItem(child: Text('settings'));
   }
 
   @override
@@ -46,20 +46,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.scanner,
-                      color: Colors.white,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.notifications,
-                      color: Colors.white,
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -71,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             indicatorSize: TabBarIndicatorSize.tab,
             // isScrollable: true,
 
-            tabs:<Widget> [
+            tabs: <Widget>[
               Tab(
                 icon: Icon(Icons.photo_camera),
               ),
@@ -99,5 +85,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
