@@ -103,8 +103,8 @@ class _SignupPageState extends State<SignupPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  width: MediaQuery.of(context).size.width / 0.2,
-                  height: MediaQuery.of(context).size.height / 8,
+                  width: MediaQuery.of(context).size.width - 70,
+                  height: MediaQuery.of(context).size.height / 9,
                   padding: EdgeInsets.all(10),
                   child: RaisedButton(
                     elevation: 5,

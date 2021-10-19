@@ -28,7 +28,11 @@ class _LoginPageState extends State<LoginPage> {
   String? validatepass(value) {
     if (value.isEmpty) {
       return 'Requried';
-    } else {
+    } else if (value.length < 8) {
+      return 'should be atleast 8 charcaters';
+    } else if (value.length > 18) {
+      return 'Should be less than 18 charcaters';
+    }else {
       return null;
     }
   }
@@ -290,6 +294,7 @@ class _LoginPageState extends State<LoginPage> {
                           'OR',
                           style: TextStyle(
                             fontSize: 36,
+                            color: Colors.white,
                           ),
                         ),
                       ),
